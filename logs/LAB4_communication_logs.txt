@@ -1,0 +1,412 @@
+LAB 4 EXECUTION TRACE - FIPA-ACL COMMUNICATION
+==========================================================================================
+Generated: 2026-02-21T13:49:34.086662
+
+AGENT ARCHITECTURE
+------------------------------------------------------------------------------------------
+SensorAgent: SENSOR-001
+ResponseAgent: RESPONSE-AGENT-001
+CoordinatorAgent: COORDINATOR-001
+
+MESSAGE EXCHANGE SUMMARY
+------------------------------------------------------------------------------------------
+Total Messages: 14
+
+Messages by Performative:
+  AGREE: 2
+  CONFIRM: 2
+  INFORM: 4
+  REFUSE: 2
+  REQUEST: 4
+
+
+DETAILED MESSAGE LOG
+==========================================================================================
+
+Message 1:
+  Performative: INFORM
+  Sender: SENSOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-1
+  Protocol: disaster-alert
+  Timestamp: 2026-02-21T13:49:30.061474
+  Content: {
+    "message_type": "disaster_detected",
+    "location": "Cape Coast",
+    "disaster_type": "flood",
+    "severity": "SEVERE",
+    "casualties": 74,
+    "infrastructure_damage": 90.395777704773,
+    "resources_needed": {
+        "medical_kits": 44,
+        "food_supplies": 62,
+        "water": 3,
+        "shelter_materials": 12,
+        "rescue_teams": 9
+    },
+    "event_id": "EVT0003"
+}
+------------------------------------------------------------------------------------------
+
+Message 2:
+  Performative: REQUEST
+  Sender: RESPONSE-AGENT-001
+  Receiver: COORDINATOR-001
+  Conversation ID: CONV-SENSOR-001-1
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:30.062435
+  Content: {
+    "action": "allocate_resources",
+    "disaster_location": "Cape Coast",
+    "disaster_type": "flood",
+    "severity": "SEVERE",
+    "resources_needed": {
+        "medical_kits": 44,
+        "food_supplies": 62,
+        "water": 3,
+        "shelter_materials": 12,
+        "rescue_teams": 9
+    },
+    "event_id": "EVT0003"
+}
+------------------------------------------------------------------------------------------
+
+Message 3:
+  Performative: AGREE
+  Sender: COORDINATOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-1
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:30.062813
+  Content: {
+    "action": "allocate_resources",
+    "resources_allocated": {
+        "medical_kits": 44,
+        "rescue_teams": 9
+    },
+    "location": "Cape Coast",
+    "event_id": "EVT0003"
+}
+------------------------------------------------------------------------------------------
+
+Message 4:
+  Performative: CONFIRM
+  Sender: COORDINATOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-1
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:30.062961
+  Content: {
+    "message": "Resources allocated to Cape Coast",
+    "allocation": {
+        "medical_kits": 44,
+        "rescue_teams": 9
+    },
+    "remaining_resources": {
+        "rescue_teams": 11,
+        "medical_kits": 56,
+        "fire_trucks": 10,
+        "ambulances": 15
+    }
+}
+------------------------------------------------------------------------------------------
+
+Message 5:
+  Performative: INFORM
+  Sender: SENSOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-2
+  Protocol: disaster-alert
+  Timestamp: 2026-02-21T13:49:32.075682
+  Content: {
+    "message_type": "disaster_detected",
+    "location": "Cape Coast",
+    "disaster_type": "hurricane",
+    "severity": "MODERATE",
+    "casualties": 11,
+    "infrastructure_damage": 49.187009479333234,
+    "resources_needed": {
+        "medical_kits": 5,
+        "food_supplies": 28,
+        "water": 102,
+        "shelter_materials": 35,
+        "rescue_teams": 8
+    },
+    "event_id": "EVT0004"
+}
+------------------------------------------------------------------------------------------
+
+Message 6:
+  Performative: REQUEST
+  Sender: RESPONSE-AGENT-001
+  Receiver: COORDINATOR-001
+  Conversation ID: CONV-SENSOR-001-2
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:32.076114
+  Content: {
+    "action": "allocate_resources",
+    "disaster_location": "Cape Coast",
+    "disaster_type": "hurricane",
+    "severity": "MODERATE",
+    "resources_needed": {
+        "medical_kits": 5,
+        "food_supplies": 28,
+        "water": 102,
+        "shelter_materials": 35,
+        "rescue_teams": 8
+    },
+    "event_id": "EVT0004"
+}
+------------------------------------------------------------------------------------------
+
+Message 7:
+  Performative: AGREE
+  Sender: COORDINATOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-2
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:32.076330
+  Content: {
+    "action": "allocate_resources",
+    "resources_allocated": {
+        "medical_kits": 5,
+        "rescue_teams": 8
+    },
+    "location": "Cape Coast",
+    "event_id": "EVT0004"
+}
+------------------------------------------------------------------------------------------
+
+Message 8:
+  Performative: CONFIRM
+  Sender: COORDINATOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-2
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:32.076419
+  Content: {
+    "message": "Resources allocated to Cape Coast",
+    "allocation": {
+        "medical_kits": 5,
+        "rescue_teams": 8
+    },
+    "remaining_resources": {
+        "rescue_teams": 3,
+        "medical_kits": 51,
+        "fire_trucks": 10,
+        "ambulances": 15
+    }
+}
+------------------------------------------------------------------------------------------
+
+Message 9:
+  Performative: INFORM
+  Sender: SENSOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-3
+  Protocol: disaster-alert
+  Timestamp: 2026-02-21T13:49:33.079559
+  Content: {
+    "message_type": "disaster_detected",
+    "location": "Cape Coast",
+    "disaster_type": "hurricane",
+    "severity": "MODERATE",
+    "casualties": 11,
+    "infrastructure_damage": 49.187009479333234,
+    "resources_needed": {
+        "medical_kits": 5,
+        "food_supplies": 28,
+        "water": 102,
+        "shelter_materials": 35,
+        "rescue_teams": 8
+    },
+    "event_id": "EVT0004"
+}
+------------------------------------------------------------------------------------------
+
+Message 10:
+  Performative: INFORM
+  Sender: SENSOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-4
+  Protocol: disaster-alert
+  Timestamp: 2026-02-21T13:49:33.079741
+  Content: {
+    "message_type": "disaster_detected",
+    "location": "Tarkwa",
+    "disaster_type": "drought",
+    "severity": "CRITICAL",
+    "casualties": 49,
+    "infrastructure_damage": 41.921711377594306,
+    "resources_needed": {
+        "medical_kits": 17,
+        "food_supplies": 10,
+        "water": 36,
+        "shelter_materials": 50,
+        "rescue_teams": 17
+    },
+    "event_id": "EVT0005"
+}
+------------------------------------------------------------------------------------------
+
+Message 11:
+  Performative: REQUEST
+  Sender: RESPONSE-AGENT-001
+  Receiver: COORDINATOR-001
+  Conversation ID: CONV-SENSOR-001-3
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:33.080128
+  Content: {
+    "action": "allocate_resources",
+    "disaster_location": "Cape Coast",
+    "disaster_type": "hurricane",
+    "severity": "MODERATE",
+    "resources_needed": {
+        "medical_kits": 5,
+        "food_supplies": 28,
+        "water": 102,
+        "shelter_materials": 35,
+        "rescue_teams": 8
+    },
+    "event_id": "EVT0004"
+}
+------------------------------------------------------------------------------------------
+
+Message 12:
+  Performative: REQUEST
+  Sender: RESPONSE-AGENT-001
+  Receiver: COORDINATOR-001
+  Conversation ID: CONV-SENSOR-001-4
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:33.080480
+  Content: {
+    "action": "allocate_resources",
+    "disaster_location": "Tarkwa",
+    "disaster_type": "drought",
+    "severity": "CRITICAL",
+    "resources_needed": {
+        "medical_kits": 17,
+        "food_supplies": 10,
+        "water": 36,
+        "shelter_materials": 50,
+        "rescue_teams": 17
+    },
+    "event_id": "EVT0005"
+}
+------------------------------------------------------------------------------------------
+
+Message 13:
+  Performative: REFUSE
+  Sender: COORDINATOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-3
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:33.080689
+  Content: {
+    "action": "allocate_resources",
+    "reason": "Insufficient resources available",
+    "available_resources": {
+        "rescue_teams": 3,
+        "medical_kits": 51,
+        "fire_trucks": 10,
+        "ambulances": 15
+    },
+    "requested_resources": {
+        "medical_kits": 5,
+        "rescue_teams": 8
+    },
+    "all_requested": {
+        "medical_kits": 5,
+        "food_supplies": 28,
+        "water": 102,
+        "shelter_materials": 35,
+        "rescue_teams": 8
+    }
+}
+------------------------------------------------------------------------------------------
+
+Message 14:
+  Performative: REFUSE
+  Sender: COORDINATOR-001
+  Receiver: RESPONSE-AGENT-001
+  Conversation ID: CONV-SENSOR-001-4
+  Protocol: resource-allocation
+  Timestamp: 2026-02-21T13:49:33.080899
+  Content: {
+    "action": "allocate_resources",
+    "reason": "Insufficient resources available",
+    "available_resources": {
+        "rescue_teams": 3,
+        "medical_kits": 51,
+        "fire_trucks": 10,
+        "ambulances": 15
+    },
+    "requested_resources": {
+        "medical_kits": 17,
+        "rescue_teams": 17
+    },
+    "all_requested": {
+        "medical_kits": 17,
+        "food_supplies": 10,
+        "water": 36,
+        "shelter_materials": 50,
+        "rescue_teams": 17
+    }
+}
+------------------------------------------------------------------------------------------
+
+
+COMBINED AGENT TRACES
+==========================================================================================
+
+[2026-02-21 13:49:30] COORDINATOR-001 | RECV ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-1 | {'action': 'allocate_resources', 'disaster_location': 'Cape Coast', 'disaster_type': 'flood', 'severity': 'SEVERE', 'resources_needed': {'medical_kits': 44, 'food_supplies': 62, 'water': 3, 'shelter_materials': 12, 'rescue_teams': 9}, 'event_id': 'EVT0003'}
+[2026-02-21 13:49:30] COORDINATOR-001 | SEND ACL[AGREE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-1 | {'action': 'allocate_resources', 'resources_allocated': {'medical_kits': 44, 'rescue_teams': 9}, 'location': 'Cape Coast', 'event_id': 'EVT0003'}
+[2026-02-21 13:49:30] COORDINATOR-001 | SEND ACL[CONFIRM] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-1 | {'message': 'Resources allocated to Cape Coast', 'allocation': {'medical_kits': 44, 'rescue_teams': 9}, 'remaining_resources': {'rescue_teams': 11, 'medical_kits': 56, 'fire_trucks': 10, 'ambulances': 15}}
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | Confirmed: Resources allocated to Cape Coast for Conv:CONV-SENSOR-001-1
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | Coordinator agreed to: allocate_resources for Conv:CONV-SENSOR-001-1
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | Disaster informed: flood at Cape Coast (Severity: SEVERE)
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | RECV ACL[AGREE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-1 | {'action': 'allocate_resources', 'resources_allocated': {'medical_kits': 44, 'rescue_teams': 9}, 'location': 'Cape Coast', 'event_id': 'EVT0003'}
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | RECV ACL[CONFIRM] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-1 | {'message': 'Resources allocated to Cape Coast', 'allocation': {'medical_kits': 44, 'rescue_teams': 9}, 'remaining_resources': {'rescue_teams': 11, 'medical_kits': 56, 'fire_trucks': 10, 'ambulances': 15}}
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | RECV ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-1 | {'message_type': 'disaster_detected', 'location': 'Cape Coast', 'disaster_type': 'flood', 'severity': 'SEVERE', 'casualties': 74, 'infrastructure_damage': 90.395777704773, 'resources_needed': {'medical_kits': 44, 'food_supplies': 62, 'water': 3, 'shelter_materials': 12, 'rescue_teams': 9}, 'event_id': 'EVT0003'}
+[2026-02-21 13:49:30] RESPONSE-AGENT-001 | SEND ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-1 | {'action': 'allocate_resources', 'disaster_location': 'Cape Coast', 'disaster_type': 'flood', 'severity': 'SEVERE', 'resources_needed': {'medical_kits': 44, 'food_supplies': 62, 'water': 3, 'shelter_materials': 12, 'rescue_teams': 9}, 'event_id': 'EVT0003'}
+[2026-02-21 13:49:30] SENSOR-001 | SEND ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-1 | {'message_type': 'disaster_detected', 'location': 'Cape Coast', 'disaster_type': 'flood', 'severity': 'SEVERE', 'casualties': 74, 'infrastructure_damage': 90.395777704773, 'resources_needed': {'medical_kits': 44, 'food_supplies': 62, 'water': 3, 'shelter_materials': 12, 'rescue_teams': 9}, 'event_id': 'EVT0003'}
+[2026-02-21 13:49:32] COORDINATOR-001 | RECV ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-2 | {'action': 'allocate_resources', 'disaster_location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:32] COORDINATOR-001 | SEND ACL[AGREE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-2 | {'action': 'allocate_resources', 'resources_allocated': {'medical_kits': 5, 'rescue_teams': 8}, 'location': 'Cape Coast', 'event_id': 'EVT0004'}
+[2026-02-21 13:49:32] COORDINATOR-001 | SEND ACL[CONFIRM] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-2 | {'message': 'Resources allocated to Cape Coast', 'allocation': {'medical_kits': 5, 'rescue_teams': 8}, 'remaining_resources': {'rescue_teams': 3, 'medical_kits': 51, 'fire_trucks': 10, 'ambulances': 15}}
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | Confirmed: Resources allocated to Cape Coast for Conv:CONV-SENSOR-001-2
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | Coordinator agreed to: allocate_resources for Conv:CONV-SENSOR-001-2
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | Disaster informed: hurricane at Cape Coast (Severity: MODERATE)
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | RECV ACL[AGREE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-2 | {'action': 'allocate_resources', 'resources_allocated': {'medical_kits': 5, 'rescue_teams': 8}, 'location': 'Cape Coast', 'event_id': 'EVT0004'}
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | RECV ACL[CONFIRM] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-2 | {'message': 'Resources allocated to Cape Coast', 'allocation': {'medical_kits': 5, 'rescue_teams': 8}, 'remaining_resources': {'rescue_teams': 3, 'medical_kits': 51, 'fire_trucks': 10, 'ambulances': 15}}
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | RECV ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-2 | {'message_type': 'disaster_detected', 'location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'casualties': 11, 'infrastructure_damage': 49.187009479333234, 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:32] RESPONSE-AGENT-001 | SEND ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-2 | {'action': 'allocate_resources', 'disaster_location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:32] SENSOR-001 | SEND ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-2 | {'message_type': 'disaster_detected', 'location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'casualties': 11, 'infrastructure_damage': 49.187009479333234, 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:33] COORDINATOR-001 | RECV ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-3 | {'action': 'allocate_resources', 'disaster_location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:33] COORDINATOR-001 | RECV ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-4 | {'action': 'allocate_resources', 'disaster_location': 'Tarkwa', 'disaster_type': 'drought', 'severity': 'CRITICAL', 'resources_needed': {'medical_kits': 17, 'food_supplies': 10, 'water': 36, 'shelter_materials': 50, 'rescue_teams': 17}, 'event_id': 'EVT0005'}
+[2026-02-21 13:49:33] COORDINATOR-001 | SEND ACL[REFUSE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-3 | {'action': 'allocate_resources', 'reason': 'Insufficient resources available', 'available_resources': {'rescue_teams': 3, 'medical_kits': 51, 'fire_trucks': 10, 'ambulances': 15}, 'requested_resources': {'medical_kits': 5, 'rescue_teams': 8}, 'all_requested': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}}
+[2026-02-21 13:49:33] COORDINATOR-001 | SEND ACL[REFUSE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-4 | {'action': 'allocate_resources', 'reason': 'Insufficient resources available', 'available_resources': {'rescue_teams': 3, 'medical_kits': 51, 'fire_trucks': 10, 'ambulances': 15}, 'requested_resources': {'medical_kits': 17, 'rescue_teams': 17}, 'all_requested': {'medical_kits': 17, 'food_supplies': 10, 'water': 36, 'shelter_materials': 50, 'rescue_teams': 17}}
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | Coordinator refused: Insufficient resources available for Conv:CONV-SENSOR-001-3
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | Coordinator refused: Insufficient resources available for Conv:CONV-SENSOR-001-4
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | Disaster informed: drought at Tarkwa (Severity: CRITICAL)
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | Disaster informed: hurricane at Cape Coast (Severity: MODERATE)
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | RECV ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-3 | {'message_type': 'disaster_detected', 'location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'casualties': 11, 'infrastructure_damage': 49.187009479333234, 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | RECV ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-4 | {'message_type': 'disaster_detected', 'location': 'Tarkwa', 'disaster_type': 'drought', 'severity': 'CRITICAL', 'casualties': 49, 'infrastructure_damage': 41.921711377594306, 'resources_needed': {'medical_kits': 17, 'food_supplies': 10, 'water': 36, 'shelter_materials': 50, 'rescue_teams': 17}, 'event_id': 'EVT0005'}
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | RECV ACL[REFUSE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-3 | {'action': 'allocate_resources', 'reason': 'Insufficient resources available', 'available_resources': {'rescue_teams': 3, 'medical_kits': 51, 'fire_trucks': 10, 'ambulances': 15}, 'requested_resources': {'medical_kits': 5, 'rescue_teams': 8}, 'all_requested': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}}
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | RECV ACL[REFUSE] COORDINATOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-4 | {'action': 'allocate_resources', 'reason': 'Insufficient resources available', 'available_resources': {'rescue_teams': 3, 'medical_kits': 51, 'fire_trucks': 10, 'ambulances': 15}, 'requested_resources': {'medical_kits': 17, 'rescue_teams': 17}, 'all_requested': {'medical_kits': 17, 'food_supplies': 10, 'water': 36, 'shelter_materials': 50, 'rescue_teams': 17}}
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | SEND ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-3 | {'action': 'allocate_resources', 'disaster_location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:33] RESPONSE-AGENT-001 | SEND ACL[REQUEST] RESPONSE-AGENT-001 -> COORDINATOR-001 | Conv:CONV-SENSOR-001-4 | {'action': 'allocate_resources', 'disaster_location': 'Tarkwa', 'disaster_type': 'drought', 'severity': 'CRITICAL', 'resources_needed': {'medical_kits': 17, 'food_supplies': 10, 'water': 36, 'shelter_materials': 50, 'rescue_teams': 17}, 'event_id': 'EVT0005'}
+[2026-02-21 13:49:33] SENSOR-001 | SEND ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-3 | {'message_type': 'disaster_detected', 'location': 'Cape Coast', 'disaster_type': 'hurricane', 'severity': 'MODERATE', 'casualties': 11, 'infrastructure_damage': 49.187009479333234, 'resources_needed': {'medical_kits': 5, 'food_supplies': 28, 'water': 102, 'shelter_materials': 35, 'rescue_teams': 8}, 'event_id': 'EVT0004'}
+[2026-02-21 13:49:33] SENSOR-001 | SEND ACL[INFORM] SENSOR-001 -> RESPONSE-AGENT-001 | Conv:CONV-SENSOR-001-4 | {'message_type': 'disaster_detected', 'location': 'Tarkwa', 'disaster_type': 'drought', 'severity': 'CRITICAL', 'casualties': 49, 'infrastructure_damage': 41.921711377594306, 'resources_needed': {'medical_kits': 17, 'food_supplies': 10, 'water': 36, 'shelter_materials': 50, 'rescue_teams': 17}, 'event_id': 'EVT0005'}
+
+
+RESOURCE ALLOCATION SUMMARY
+==========================================================================================
+Remaining Resources:
+  rescue_teams: 3
+  medical_kits: 51
+  fire_trucks: 10
+  ambulances: 15
+
+Allocated to Disasters:
+  Event EVT0003: {'medical_kits': 44, 'rescue_teams': 9}
+  Event EVT0004: {'medical_kits': 5, 'rescue_teams': 8}
